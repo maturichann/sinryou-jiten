@@ -64,13 +64,13 @@ export default function Home() {
       <header className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white shrink-0">
         <div className="px-4 py-3">
           <div className="flex items-baseline gap-2">
-            <h1 className="text-lg font-bold tracking-wide">診療報酬辞典</h1>
+            <h1 className="text-lg font-bold tracking-wide">清恵会 診療報酬辞典</h1>
             <span className="text-[11px] text-blue-200">
-              令和6年度改定対応
+              令和6年度改定対応 + 当直研修マニュアル
             </span>
           </div>
           <p className="text-[11px] text-blue-200 mt-0.5">
-            いつ算定できる？ いつダメ？ が一目でわかる
+            算定ルール・保険公費・業務手順が一目でわかる
           </p>
         </div>
 

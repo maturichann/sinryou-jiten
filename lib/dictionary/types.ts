@@ -11,7 +11,9 @@ export type ShinryouCategory =
   | "kensa"
   | "gazou"
   | "riha"
-  | "sonota";
+  | "sonota"
+  | "hoken"
+  | "gyoumu";
 
 /** 辞典の1項目 */
 export interface DictionaryItem {

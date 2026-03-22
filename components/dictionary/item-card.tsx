@@ -9,8 +9,11 @@ interface Props {
   onToggle: () => void;
 }
 
+const isReference = (category: string) => category === "hoken" || category === "gyoumu";
+
 export function DictionaryItemCard({ item, expanded, onToggle }: Props) {
   const cat = CATEGORIES[item.category];
+  const refMode = isReference(item.category);
 
   return (
     <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
@@ -47,12 +50,18 @@ export function DictionaryItemCard({ item, expanded, onToggle }: Props) {
             </div>
           </div>
           <div className="shrink-0 flex items-center gap-2">
-            <span className="text-base font-bold font-mono text-blue-700">
-              {item.points}
-              <span className="text-xs font-normal text-slate-500 ml-0.5">
-                点
+            {item.points > 0 ? (
+              <span className="text-base font-bold font-mono text-blue-700">
+                {item.points}
+                <span className="text-xs font-normal text-slate-500 ml-0.5">
+                  点
+                </span>
               </span>
-            </span>
+            ) : (
+              <span className="text-[10px] font-medium text-slate-400 bg-slate-100 px-2 py-1 rounded-md">
+                参考
+              </span>
+            )}
             <svg
               className={`w-4 h-4 text-slate-400 transition-transform ${
                 expanded ? "rotate-180" : ""
@@ -87,7 +96,7 @@ export function DictionaryItemCard({ item, expanded, onToggle }: Props) {
                 ✅
               </span>
               <span className="text-xs font-bold text-emerald-800">
-                こんな時に算定
+                {refMode ? "ポイント・手順" : "こんな時に算定"}
               </span>
             </div>
             <ul className="space-y-1.5">
@@ -108,7 +117,7 @@ export function DictionaryItemCard({ item, expanded, onToggle }: Props) {
                   ❌
                 </span>
                 <span className="text-xs font-bold text-red-800">
-                  算定できない場合
+                  {refMode ? "注意事項" : "算定できない場合"}
                 </span>
               </div>
               <ul className="space-y-1.5">
