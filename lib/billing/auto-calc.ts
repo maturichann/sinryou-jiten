@@ -57,12 +57,6 @@ export function getBaseAutoEntries(session: BillingSession): EntryLine[] {
     if (e) result.push(e);
   }
 
-  // ── 明細書発行体制等加算 (常に) ──
-  if (!hasEntry(session.entries, "A003")) {
-    const e = makeAutoEntry("A003");
-    if (e) result.push(e);
-  }
-
   // ── 乳幼児加算 (6歳未満) ──
   if (patient.age < 6) {
     if (consultation.type === "initial" && !hasEntry(session.entries, "A000-INF")) {

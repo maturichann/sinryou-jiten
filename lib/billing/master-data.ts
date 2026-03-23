@@ -151,11 +151,6 @@ export const SHINRYOU_ITEMS: ShinryouItem[] = [
     tags: ["auto_followup_no_procedure"],
   },
   {
-    code: "A003", name: "明細書発行体制等加算", points: 1, category: "shinsa",
-    helpText: "すべての患者さんに毎回自動算定。明細書を発行する体制がある医療機関で取れる。",
-    tags: ["auto_always"],
-  },
-  {
     code: "A000-INF", name: "乳幼児加算(初診)", points: 75, category: "shinsa",
     requiresInitial: true, ageRestriction: "infant",
     helpText: "6歳未満のお子さんの初診時に自動算定。",
