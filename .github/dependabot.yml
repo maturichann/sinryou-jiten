@@ -1,0 +1,21 @@
+# Weekly review queue: one version-update PR per ecosystem.
+# Minor/patch releases are grouped; major and security updates require separate review.
+# This file does not enable auto-merge or change installed application versions.
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: /
+  schedule:
+    interval: weekly
+    day: monday
+    time: 03:00
+    timezone: Etc/UTC
+  open-pull-requests-limit: 1
+  groups:
+    minor-and-patch:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
