@@ -1,6 +1,6 @@
-# Weekly review queue: one version-update PR per ecosystem.
-# Minor/patch releases are grouped; major and security updates require separate review.
-# This file does not enable auto-merge or change installed application versions.
+# Routine version updates: minor/patch only. Security fixes remain eligible.
+# Major-only security fixes require individual migration review; no blanket ignore.
+# See .github/DEPENDENCY_REVIEW.md. No auto-merge or application version changes.
 version: 2
 updates:
 - package-ecosystem: npm
@@ -19,3 +19,8 @@ updates:
       update-types:
       - minor
       - patch
+  allow:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-minor
+    - version-update:semver-patch
