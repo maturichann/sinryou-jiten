@@ -1,0 +1,26 @@
+# Routine version updates: minor/patch only. Security fixes remain eligible.
+# Major-only security fixes require individual migration review; no blanket ignore.
+# See .github/DEPENDENCY_REVIEW.md. No auto-merge or application version changes.
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: /
+  schedule:
+    interval: weekly
+    day: monday
+    time: '03:00'
+    timezone: Etc/UTC
+  open-pull-requests-limit: 1
+  groups:
+    minor-and-patch:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+  allow:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-minor
+    - version-update:semver-patch
